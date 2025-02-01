@@ -1,0 +1,103 @@
+{% extends "tbase.html" %}
+
+{%load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{% static 'CSS/taddresult.css' %}">
+</head>
+<body>
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="breadcrumb">
+            <span class="path">Pages / Results / Add Result</span>
+            <h1>Add Student Result</h1>
+        </div>
+        <div class="user-info">
+            <span>{{request.session.Name}}, Teacher</span>
+            <button class="btn btn-outline">Logout</button>
+        </div>
+    </header>
+
+      <!-- Search Student Section -->
+      <div class="search-section">
+        <div class="search-container">
+            <form action="{% url 'stdsearch' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="prn" placeholder="Enter Student PRN Number" class="search-input">
+            <input class="btn btn-primary" type="submit" value="Search Student" >
+        </form>
+        </div>
+
+    </div>
+  <!-- Student Info Section -->
+  <div class="info-card">
+    <h2>Student Information</h2>
+    <center>{{key}}</center>
+    <div class="student-info-grid">
+        <div class="info-group">
+            <label>Student Name</label>
+            <input type="text" value="{{request.session.sName}}" readonly>
+        </div>
+        <div class="info-group">
+            <label>Class</label>
+            <input type="text" value="{{request.session.sclass}}" readonly>
+        </div>
+        <div class="info-group">
+            <label>Age</label>
+            <input type="text" value="{{request.session.sage}}" readonly>
+        </div>
+       
+    </div>
+</div>
+<form action="{% url 'taddresult' %}" method="post">
+    {% csrf_token %}
+    <div class="search-section">
+        <div class="search-container">
+            <input type="text" name="prn" placeholder="Enter Student PRN Number" class="search-input">
+            <input class="btn btn-primary" type="submit" value="Save Result" >
+    
+        </div>
+        <div class="action-buttons">
+            <button class="btn btn-outline" ><a href="{% url 'clear' %}" style="color: blanchedalmond;">Clear</a></button>
+          
+        
+        </div>
+  
+<div class="marks-card">
+
+    <h2>Enter Marks</h2>
+    <div class="marks-grid">
+        <div class="marks-group">
+            <label>Subject Code: </label>
+            <input type="number" name="scode" placeholder="Enter subject Code" min="0" max="100">
+           
+        </div>
+        <div class="marks-group">
+            <label>Name of subject:</label>
+            <input type="text" name="sname" placeholder="Enter subject name" min="0" max="100">
+            <span class="max-marks">Max Marks: 100</span>
+        </div>
+        <div class="marks-group">
+            <label>Obtained Marks :</label>
+            <input type="number" name="marks" placeholder="Enter marks" min="0" max="100">
+            <span class="max-marks">Max Marks: 100</span>
+        </div>
+       
+        <!-- Action Buttons -->
+
+</form>
+
+    
+    
+    
+    </main>
+</body>
+{% endblock content %}
+</html>

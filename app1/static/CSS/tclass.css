@@ -1,0 +1,128 @@
+/* Additional styles for Classes page - extends dashboard.css */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.add-btn {
+    background-color: var(--card-pink);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.add-btn:hover {
+    opacity: 0.9;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-input, .filter-select {
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    background-color: var(--sidebar-bg);
+    color: var(--text-primary);
+    min-width: 200px;
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.table-container {
+    background-color: var(--sidebar-bg);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.classes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.classes-table th,
+.classes-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.classes-table th {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: opacity 0.3s ease;
+}
+
+.action-btn.edit {
+    background-color: var(--card-blue);
+    color: white;
+}
+
+.action-btn.view {
+    background-color: var(--card-green);
+    color: white;
+}
+
+.action-btn.delete {
+    background-color: #E74C3C;
+    color: white;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.page-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--sidebar-bg);
+    color: var(--text-primary);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-btn.active {
+    background-color: var(--card-pink);
+    border-color: var(--card-pink);
+}
+
+.page-btn:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+}

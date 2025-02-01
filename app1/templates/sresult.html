@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Result</title>
+        <link rel="stylesheet" href="{% static 'CSS/sdashbord.css' %}">
+        <link rel="stylesheet" href="{% static 'CSS/sresult.css' %}">
+    </head>
+<body>
+   
+      <!-- individual_result.html -->
+
+
+    <div class="container">
+        <header  style="background: #ff4081;">
+            <h1>Student Result Portal</h1>
+        </header>
+
+        <div class="search-section">
+            <form method="POST" class="search-form" action="{% url 'showresultstd' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="pnr" placeholder="Enter PRN Number" required>
+                    <button type="submit" class="search-btn">Search Result</button>
+                </div>
+            </form>
+        </div>
+
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if found %}
+        <div class="result-container">
+            <!-- Student Information Card -->
+            <div class="student-info">
+                <h2>Student Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Name:</span>
+                        <span class="value">{{ student.Name }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">PRN:</span>
+                        <span class="value">{{ student.s_id }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Class:</span>
+                        <span class="value">{{ student.S_class }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <div class="results-table">
+                <h2>Academic Results</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Marks Obtained</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                        <tr>
+                            <td>{{ result.scode.sub_code }}</td>
+                            <td>{{ result.scode.sub_name }}</td>
+                            <td>{{ result.obtained_marks }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+  {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+
+<div class="container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">Student Management System</div>
+        <div class="nav-links">
+            <a href="{% url 'tdashbord' %}" class="nav-link">
+                <span class="icon">📊</span>
+                Dashboard
+            </a>
+            <a href="{% url 'tclass' %}" class="nav-link">
+                <span class="icon">👥</span>
+                Classes
+            </a>
+           
+            <a href="{% url 'tstudent' %}" class="nav-link active">
+                <span class="icon">🎓</span>
+                Students
+            </a>
+            <a href="{% url 'tresult' %}" class="nav-link">
+                <span class="icon">📝</span>
+                Results
+            </a>
+        </div>
+        <div class="account-section">
+            <div class="section-title">ACCOUNT PAGES</div>
+            <a href="#" class="nav-link">
+                <span class="icon">👤</span>
+                Profile
+            </a>
+        </div>
+    </nav>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get current page URL
+            let currentPage = window.location.pathname;
+    
+            // Select all navigation links
+            let navLinks = document.querySelectorAll(".nav-link");
+    
+            // Loop through links and remove 'active' class
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+    
+                // Compare href attribute to current page and add 'active' class
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+    
+{% block content %}
+
+
+
+{% endblock content %}
+
+<footer class="dashboard-footer">
+    © Student Result Management System
+</footer>

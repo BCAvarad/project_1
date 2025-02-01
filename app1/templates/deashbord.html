@@ -1,0 +1,24 @@
+ {% extends "base.html" %}
+{% load static %}
+ {% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+  <link rel="stylesheet" href="{% static 'CSS/sdashbord.css' %}">
+</head>
+<body>
+  <marquee>
+    {{request.session.s_id}}
+</marquee>
+        <img src="{{MEDIA_URL}}{{request.session.sprofile_pic}}" class="pic" alt="Profile Picture" height="500px" width="625px">
+        <h3>student name :  {{request.session.sName}} </h3>
+        <h3>student age : {{request.session.sage}} </h3>
+        <h3>student class : {{request.session.S_class}} </h3>
+
+        <button type="button"><a href="{% url 'showresult' %}">Result</button>
+    </div>
+    {% endblock content %}
+</body>
+</html>

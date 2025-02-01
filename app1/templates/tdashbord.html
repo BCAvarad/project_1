@@ -1,0 +1,54 @@
+{% extends "tbase.html" %}
+{% load static %}
+{% block content %}
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{% static 'CSS/dashbord.css' %}">
+</head>
+<body>
+    <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="breadcrumb">
+                    Pages / Dashboard
+                </div>
+                <div class="user-menu">
+                    <span>{{request.session.tName}}, Teacher</span>
+                    <a href={% url "t_logout" %} class="logout-btn">Logout</a>
+                </div>
+            </header>
+
+            <div class="dashboard-title">Teacher Dashboard</div>
+            <img src="{{MEDIA_URL}}{{request.session.tprofile_pic}}" alt="profile photo" height="500px" width="625px">
+            <h1>{{request.session.tName}}</h1> 
+            <h1>{{request.session.tage}}</h1> 
+            <h1>{{request.session.t_class}}</h1> 
+            
+            
+              <button class="btn" type="button" style="padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+       background-color: #2563eb;
+       color: white;"><a href="{% url 'addresult' %}">add Result</button>
+            
+              <button class="btn" type="button" style="padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+       background-color: #2563eb;
+       color: white;"><a href="{% url 'demo' %}">add Student</button>
+
+        {% endblock content %}
+        </main>
+    </div>
+</body>
+</html>

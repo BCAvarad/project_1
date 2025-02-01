@@ -1,0 +1,28 @@
+<div class="sidebar">
+    <h2>Student Result  Management System</h2>
+    <a href="#" class="active"> 📊 Student Dashboard</a>
+    <a href="#">👥 Class</a>
+    <a href="#">📚 Subject</a>
+   
+    <a href="{% url 'showresult' %}">📝 Results</a>
+    <h2>Account Pages</h2>
+    <a href="#">👤 Profile</a>
+</div>
+
+<div class="main-content">
+    <div class="navbar">
+        <h1>Student Dashboard</h1>
+        <div class="user-info">
+            <span style="color:white">{{request.session.sName}}, Student</span>
+            <a href={% url "s_logout" %} class="logout">Logout</a>
+        </div>
+    </div>
+{% block content %}
+
+
+
+
+
+
+{% endblock content %}
+

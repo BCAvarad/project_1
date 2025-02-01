@@ -1,0 +1,122 @@
+{% extends "tbase.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="{% static 'CSS/dashbord.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'CSS/tstudent.css' %}">
+</head>
+<body>
+   
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="breadcrumb">
+                    <span class="path">Pages / Students</span>
+                    <h1>Manage Students</h1>
+                </div>
+                <div class="user-info">
+                    <span>{{request.session.Name}}, Teacher</span>
+                    <button class="btn btn-outline">Logout</button>
+                </div>
+            </header>
+
+            <button class="btn btn-primary"><a   href="{% url 'addstudentpage' %}" >Add New Student</a></button>
+
+            <!-- Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card blue">
+                    <span class="stat-label">Total Students</span>
+                    <span class="stat-value">156</span>
+                </div>
+                <div class="stat-card orange">
+                    <span class="stat-label">Active Students</span>
+                    <span class="stat-value">145</span>
+                </div>
+                <div class="stat-card green">
+                    <span class="stat-label">Average Attendance</span>
+                    <span class="stat-value">92%</span>
+                </div>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="filters">
+                <input type="text" placeholder="Search students..." class="search-input">
+                <select class="select">
+                    <option>All Classes</option>
+                </select>
+                <select class="select">
+                    <option>All Sections</option>
+                </select>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No.</th>
+                            <th>Student Name</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Parent Name</th>
+                            <th>Contact</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>John Doe</td>
+                            <td>10</td>
+                            <td>A</td>
+                            <td>Robert Doe</td>
+                            <td>+1234567890</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td class="actions">
+                                <button class="btn btn-icon" id="edit-botton">Edit</button>
+                                <button class="btn btn-icon" id="view-botton">View</button>
+                                <button class="btn btn-icon" id="delete-botton">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Jane Smith</td>
+                            <td>10</td>
+                            <td>B</td>
+                            <td>Mary Smith</td>
+                            <td>+1234567891</td>
+                            <td><span class="status-badge inactive">Inactive</span></td>
+                            <td class="actions">
+                                <button class="btn btn-icon" id="edit-botton">Edit</button>
+                                <button class="btn btn-icon" id= "view-botton">View</button>
+                                <button class="btn btn-icon" id="delete-botton">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn btn-outline">Previous</button>
+                <button class="btn btn-outline" id="btn1">1</button>
+                <button class="btn btn-outline">2</button>
+                <button class="btn btn-outline">3</button>
+                <button class="btn btn-outline">Next</button>
+            </div>
+        </main>
+    </div>
+    {% endblock content %}
+</body>
+</html>

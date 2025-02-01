@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8)), url('https://via.placeholder.com/1920x1080');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 390px;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-align: center;
+    color: #333;
+}
+
+.form-container .form-group {
+    margin-bottom: 15px;
+}
+
+.form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-container .form-group input, 
+.form-container .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.form-container .form-group input:focus, 
+.form-container .form-group select:focus {
+    border-color: #6a11cb;
+    outline: none;
+}
+
+.form-container .form-group button {
+    width: 100%;
+    padding: 12px;
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-container .form-group button:hover {
+    background: #2575fc;
+}
+
+.form-container .form-footer {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+}
+
+.form-container .form-footer a {
+    color: #6a11cb;
+    text-decoration: none;
+}
+
+.form-container .form-footer a:hover {
+    text-decoration: underline;
+}
+.alert {
+    padding: 15px;
+    background-color: #ffcc00;
+    color: rgb(255, 2, 2);
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.alert strong {
+    font-weight: bold;
+}
+
+.alert .closebtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: rgb(28, 255, 58);
+    font-size: 20px;
+    line-height: 15px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+

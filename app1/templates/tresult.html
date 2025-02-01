@@ -1,0 +1,123 @@
+{% extends "tbase.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Management - Teacher Dashboard</title>
+    <link rel="stylesheet" href="{% static 'CSS/dashbord.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/tresult.css' %}">
+</head>
+<body>
+   
+    
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="breadcrumb">Pages / Results</div>
+                <div class="user-info">
+                    <span>{{request.session.Name}}, Teacher</span>
+                    <button class="btn btn-outline">Logout</button>
+                </div>
+            </div>
+
+            <h1 class="rm-heading">Results Management</h1>
+            <button class="add-result-btn"><a href="{% url 'addresult' %}" > Add New Result</a></button>
+
+            <!-- Filters -->
+            <div class="filters">
+                <select>
+                    <option>Select Class</option>
+                </select>
+                <select>
+                    <option>Select Term</option>
+                </select>
+                <select>
+                    <option>Select Subject</option>
+                </select>
+                <button class="view-results-btn">View Results</button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-title">Class Average</div>
+                    <div class="stat-value">78.5%</div>
+                    <div class="stat-change">+2.3%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Pass Rate</div>
+                    <div class="stat-value">92%</div>
+                    <div class="stat-change">+1.5%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Top Score</div>
+                    <div class="stat-value">98%</div>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>Subject</th>
+                        <th>Marks Obtained</th>
+                        <th>Total Marks</th>
+                        <th>Percentage</th>
+                        <th>Grade</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>John Doe</td>
+                        <td>10-A</td>
+                        <td>Mathematics</td>
+                        <td>87</td>
+                        <td>100</td>
+                        <td>87%</td>
+                        <td><span class="grade grade-a">A</span></td>
+                        <td class="actions">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn view-btn">View</button>
+                            <button class="action-btn print-btn">Print</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Jane Smith</td>
+                        <td>10-A</td>
+                        <td>Mathematics</td>
+                        <td>92</td>
+                        <td>100</td>
+                        <td>92%</td>
+                        <td><span class="grade grade-aplus">A+</span></td>
+                        <td class="actions">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn view-btn">View</button>
+                            <button class="action-btn print-btn">Print</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn btn-outline">Previous</button>
+                <button class="btn btn-outline" id="btn1">1</button>
+                <button class="btn btn-outline">2</button>
+                <button class="btn btn-outline">3</button>
+                <button class="btn btn-outline">Next</button>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>
+    
